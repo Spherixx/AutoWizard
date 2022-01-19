@@ -1,4 +1,5 @@
-package com.github.spherixx;
+package com.github.spherixx.autowizard;
+
 public class Config {
     // toggles console debugging on or off
     public static boolean debug = true;

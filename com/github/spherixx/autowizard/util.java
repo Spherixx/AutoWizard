@@ -6,6 +6,9 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.logging.SimpleFormatter;
 
+import org.sikuli.script.FindFailed;
+import org.sikuli.script.Screen;
+
 public class util {
 
     public static void log(Level logLevel, String logData) {
@@ -39,5 +42,15 @@ public class util {
         } catch (InterruptedException e1) {
             e1.printStackTrace();
         }
+    }
+
+    public static void getCurrentScreen() {
+        // get a screenshot
+        Screen s = new Screen();
+        s.setROI(979, 197, 40, 40);
+        try {
+            s.find(Config.imagesPath + "research_screen_indicator.png");
+            Config.currentScreen = "research";
+        } catch (FindFailed e) {}
     }
 }

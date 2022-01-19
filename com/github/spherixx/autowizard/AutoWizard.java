@@ -19,6 +19,7 @@ public class AutoWizard {
             // do main loop things
             // find out which things we need to do
             findIndicators();
+            util.getCurrentScreen();
 
             // do things
             // handle research
@@ -60,4 +61,5 @@ public class AutoWizard {
             }
         }
     }
+
 }

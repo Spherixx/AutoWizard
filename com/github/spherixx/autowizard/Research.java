@@ -6,6 +6,7 @@ import org.sikuli.script.Screen;
 public class Research {
     
     private static void researchScreen() {
+        util.getCurrentScreen();
         // get a screenshot
         Screen s = new Screen();
         if (Config.currentScreen != "research") {
@@ -60,12 +61,14 @@ public class Research {
                 try {
                     s.find(Config.imagesPath + "research_state_finished");
                     try {
+                        s.setROI(890, 510, 140, 60);
                         s.click(Config.imagesPath + "button_research_acquire.png");
                     } catch (FindFailed e) {}
                     if (Config.debug) System.out.println(Config.researchButtons[i] + " research is finished");
                 } catch (FindFailed e) {}
             } else {
                 try {
+                    s.setROI(890, 510, 140, 60);
                     s.click(Config.imagesPath + "button_research_research.png");
                 } catch (FindFailed e) {}
                 if (Config.debug) System.out.println(Config.researchButtons[i] + " research started");
