@@ -21,7 +21,7 @@ public class Config {
     public static String spellImagesPath = "C:/Users/Spherix/AutoWizard/images/spells/";
 
     // anti afk click timer (it won't always click exactly at this interval)
-    public static Duration antiAFK = Duration.ofSeconds(10);
+    public static int antiAFK = 10000;
     
     // true if using auto research perk, false if bot is handling research
     public static boolean autoResearch = true;
@@ -49,5 +49,11 @@ public class Config {
     // staff buttons
     public static int[] staffButtonsX = {851, 925, 999};
     public static int staffButtonsY = 300;
+
+
+    // testing
+    public static boolean staff = true;
+    public static boolean eye = true;
+    public static boolean enchant = true;
 
 }

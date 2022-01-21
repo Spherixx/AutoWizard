@@ -1,7 +1,7 @@
 package com.github.spherixx.autowizard;
 
 import java.awt.AWTException;
-import java.time.LocalTime;
+import java.time.Duration;
 import java.util.Arrays;
 import org.sikuli.script.FindFailed;
 import org.sikuli.script.Screen;
@@ -12,20 +12,20 @@ public class AutoWizard {
         
         // main loop runs while this is true
         boolean running = true;
-        LocalTime lastRun;
+        int antiAFKtimer = 0;
         int runCount = 0;
 
         // start the main loop
         while (running) {
             // track loop time
             long startTime = System.nanoTime();
-            // set the last run time
-            lastRun = LocalTime.now();
 
             // do main loop things
             
             // if more than antiAFK time has passed
-            if (lastRun.isAfter(lastRun.plus(Config.antiAFK))) {
+            if (antiAFKtimer > 10000) {
+                if (Config.debug) System.out.println("Anti AFK: clicking randomly");
+                antiAFKtimer = 0;
                 antiAFK();
             }
 
@@ -41,23 +41,25 @@ public class AutoWizard {
                 util.sleep(250);
             }
             // handle staff
-            if (Config.mainIndicators[1] == true) StaffofKnowledge.handleStaff();
+            if (Config.mainIndicators[1] == true && Config.staff == true) StaffofKnowledge.handleStaff();
             util.sleep(250);
             // handle eye of vision
-            if (Config.mainIndicators[2] == true) EyeofVision.handleEye();
+            if (Config.mainIndicators[2] == true && Config.eye == true) EyeofVision.handleEye();
             util.sleep(250);
             // handle enchant
-            if (Config.mainIndicators[3] == true) Enchant.handleEnchant();
+            if (Config.mainIndicators[3] == true && Config.enchant == true) Enchant.handleEnchant();
             util.sleep(250);
 
             // end loop timer
             long endTime = System.nanoTime();
             // get difference
             long timeElapsed = endTime - startTime;
-            if (Config.debug) System.out.println("Last main loop took: " + timeElapsed / 1000000 + " milliseconds");
+            // increment antiAFKtimer
+            antiAFKtimer += (timeElapsed / 1000000);
+            if (Config.debug) System.out.println("Last tick: " + timeElapsed / 1000000 + "ms");
 
             runCount++;
-            if (runCount >= 10) {
+            if (runCount >= 20) {
                 running = false;
             }
         }

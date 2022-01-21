@@ -35,7 +35,7 @@ public class StaffofKnowledge {
         Screen s = new Screen();
 
         // check each one of the perk options
-        for (int i = 0; i > foundSpell.length; i++) {
+        for (int i = 0; i < foundSpell.length; i++) {
             if (i == 0) {
                 if (Config.debug) System.out.println("Checking first slot");
                 s.setROI(850, 299, 72, 72);

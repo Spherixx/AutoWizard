@@ -53,22 +53,28 @@ public class util {
         sleep(500);
         switch (window) {
             case "research":
-                mouseInput("click", Config.mainButtonsX[0], Config.mainButtonsY[1]);
+            if (Config.debug) System.out.println("Opening research");
+            mouseInput("click", Config.mainButtonsX[0], Config.mainButtonsY[1]);
             break;
             case "enchant":
-                mouseInput("click", Config.mainButtonsX[3], Config.mainButtonsY[1]);
+            if (Config.debug) System.out.println("Opening enchant");
+            mouseInput("click", Config.mainButtonsX[3], Config.mainButtonsY[1]);
             break;
             case "staff":
-                mouseInput("click", Config.mainButtonsX[2], Config.mainButtonsY[1]);
+            if (Config.debug) System.out.println("Opening staff");
+            mouseInput("click", Config.mainButtonsX[2], Config.mainButtonsY[1]);
             break;
             case "eye":
-                mouseInput("click", Config.mainButtonsX[4], Config.mainButtonsY[1]);
+            if (Config.debug) System.out.println("Opening eye");
+            mouseInput("click", Config.mainButtonsX[4], Config.mainButtonsY[1]);
             break;
             case "settings":
-                mouseInput("click", Config.mainButtonsX[5], Config.mainButtonsY[0]);
+            if (Config.debug) System.out.println("Opening settings");
+            mouseInput("click", Config.mainButtonsX[5], Config.mainButtonsY[0]);
             break;
             case "close":
-                mouseInput("click", 950, 740);
+            if (Config.debug) System.out.println("Closing window");
+            mouseInput("click", 950, 740);
             break;
         }
     }

@@ -35,6 +35,8 @@ public class Enchant {
 
     public static void handleEnchant() throws FindFailed, AWTException {
 
+        getEnchantLevel();
+
         if (enchant == true) {
             if (Config.debug) System.out.println("Enchanting");
             util.currentWindow("enchant");
