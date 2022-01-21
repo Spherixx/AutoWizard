@@ -13,15 +13,19 @@ public class Config {
 
     // bot stuff
     public static String imagesPath = "C:/Users/Spherix/AutoWizard/images/";
-
-    // no
-    public static String currentScreen = "none";
-    public static boolean onResearchScreen = false;
+    
+    // true if using auto research perk, false if bot is handling research
+    public static boolean autoResearch = true;
 
     // main buttons
-    public static String[] mainButtons = {"button_research", "button_staff", "button_eye", "button_enchant"};
+    public static int[] mainButtonsX = {740, 810, 880, 960, 1030, 1100, 1180};
+    public static int[] mainButtonsY = {800, 880, 960};
+    public static String[] mainIndicatorButtons = {"button_research", "button_staff", "button_eye", "button_enchant"};
     public static boolean[] mainIndicators = new boolean[4];
-    public static int[] mainIndicatorsx = {740, 880, 1030, 960};
+    public static int[] mainIndicatorsX = {740, 880, 1030, 960};
+
+    // eye buttons
+    public static int[] eyeButtonXY = {1100, 320};
 
     // research buttons
     public static String[] researchButtons = {"button_research_damage", "button_research_hp", "button_research_souls", "button_research_xp", "button_research_enchant"};

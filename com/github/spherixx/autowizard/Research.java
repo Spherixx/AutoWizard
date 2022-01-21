@@ -1,31 +1,21 @@
 package com.github.spherixx.autowizard;
 
+import java.awt.AWTException;
+
 import org.sikuli.script.FindFailed;
 import org.sikuli.script.Screen;
 
 public class Research {
-    
-    private static void researchScreen() {
-        util.getCurrentScreen();
-        // get a screenshot
-        Screen s = new Screen();
-        if (Config.currentScreen != "research") {
-            try {
-                // click on research button
-                if (Config.debug) System.out.println("Opening research");
-                s.click(Config.imagesPath + "button_research.png");
-                Config.currentScreen = "resaerch";
-                util.sleep(3000);
-            } catch (FindFailed e) {
-                if (Config.debug) System.out.println("Failed to find button_research.png");
-            }
-        }
-    }
 
-    public static void findResearchIndicators() {
+    public static void findResearchIndicators() throws FindFailed {
         if (Config.debug) System.out.println("Finding research indicators");
         // make sure we're on research screen
-        researchScreen();
+        try {
+            util.currentWindow("close");
+        } catch (AWTException e1) {
+            // TODO Auto-generated catch block
+            e1.printStackTrace();
+        }
         // get a screenshot
         Screen s = new Screen();
 
@@ -43,10 +33,15 @@ public class Research {
         }
     }
     
-    public static void doResearch() {
+    public static void handleResearch() throws FindFailed {
         if (Config.debug) System.out.println("Finding research states");
         // make sure we're on research screen
-        researchScreen();
+        try {
+            util.currentWindow("research");
+        } catch (AWTException e1) {
+            // TODO Auto-generated catch block
+            e1.printStackTrace();
+        }
         // get a screenshot
         Screen s = new Screen();
 

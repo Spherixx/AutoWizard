@@ -1,16 +1,17 @@
 package com.github.spherixx.autowizard;
 
-import org.sikuli.script.FindFailed;
-import org.sikuli.script.Screen;
+import java.awt.AWTException;
 import java.util.Arrays;
 
+import org.sikuli.script.FindFailed;
+import org.sikuli.script.Screen;
 
 public class AutoWizard {
 
     // main loop runs while this is true
     private static boolean running = true;
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws FindFailed, AWTException {
         // start the main loop
         while (running) {
             // track loop time
@@ -19,13 +20,12 @@ public class AutoWizard {
             // do main loop things
             // find out which things we need to do
             findIndicators();
-            util.getCurrentScreen();
 
             // do things
             // handle research
-            if (Config.mainIndicators[0] == true) {
+            if (Config.mainIndicators[0] == true && Config.autoResearch == false) {
                 Research.findResearchIndicators();
-                if (Arrays.asList(Config.researchIndicators).contains(true)) Research.doResearch();
+                if (Arrays.asList(Config.researchIndicators).contains(true)) Research.handleResearch();
             }
             // handle staff
             if (Config.mainIndicators[1] == true) StaffofKnowledge.handleStaff();
@@ -47,17 +47,16 @@ public class AutoWizard {
     // run through each of the clickable buttons and find the ones with an indicator on them
     private static void findIndicators() {
         if (Config.debug) System.out.println("Finding indicators.");
-        // get a screenshot
         Screen s = new Screen();
-        for (int i = 0; i < Config.mainButtons.length; i++) {
-            s.setROI(Config.mainIndicatorsx[i], 840, 60, 60);
+        for (int i = 0; i < Config.mainIndicatorButtons.length; i++) {
+            s.setROI(Config.mainIndicatorsX[i], 840, 60, 60);
             try {
                 s.find(Config.imagesPath + "indicator.png");
                 Config.mainIndicators[i] = true;
-                if (Config.debug) System.out.println("Indicator found for " + Config.mainButtons[i]);
+                if (Config.debug) System.out.println("Indicator found for " + Config.mainIndicatorButtons[i]);
             } catch (FindFailed e) {
                 Config.mainIndicators[i] = false;
-                if (Config.debug) System.out.println("Indicator not found for " + Config.mainButtons[i]);
+                if (Config.debug) System.out.println("Indicator not found for " + Config.mainIndicatorButtons[i]);
             }
         }
     }
