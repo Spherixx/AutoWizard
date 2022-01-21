@@ -10,7 +10,6 @@ import java.awt.*;
 import java.awt.event.InputEvent;
 
 import org.sikuli.script.FindFailed;
-import org.sikuli.script.Screen;
 
 public class util {
 
@@ -48,25 +47,25 @@ public class util {
     }
 
     public static void currentWindow(String window) throws FindFailed, AWTException {
-        Screen s = new Screen();
         // normalize the argument so its not case sensitive
         window.toLowerCase();
-        s.setROI(695, 762, 530, 240);
+        mouseInput("click", 950, 740);
+        sleep(500);
         switch (window) {
             case "research":
-                mouseInput("click", Config.mainButtonsX[0], Config.mainButtonsX[1]);
+                mouseInput("click", Config.mainButtonsX[0], Config.mainButtonsY[1]);
             break;
             case "enchant":
-                mouseInput("click", Config.mainButtonsX[3], Config.mainButtonsX[1]);
+                mouseInput("click", Config.mainButtonsX[3], Config.mainButtonsY[1]);
             break;
             case "staff":
-                mouseInput("click", Config.mainButtonsX[2], Config.mainButtonsX[1]);
+                mouseInput("click", Config.mainButtonsX[2], Config.mainButtonsY[1]);
             break;
             case "eye":
-                mouseInput("click", Config.mainButtonsX[4], Config.mainButtonsX[1]);
+                mouseInput("click", Config.mainButtonsX[4], Config.mainButtonsY[1]);
             break;
             case "settings":
-                mouseInput("click", Config.mainButtonsX[5], Config.mainButtonsX[0]);
+                mouseInput("click", Config.mainButtonsX[5], Config.mainButtonsY[0]);
             break;
             case "close":
                 mouseInput("click", 950, 740);
@@ -83,16 +82,19 @@ public class util {
             break;
             case "click":
             bot.mouseMove(x, y);
+            bot.delay(100);
             bot.mousePress(InputEvent.BUTTON1_DOWN_MASK);
             bot.mouseRelease(InputEvent.BUTTON1_DOWN_MASK);
             break;
             case "rightclick":
             bot.mouseMove(x, y);
+            bot.delay(100);
             bot.mousePress(InputEvent.BUTTON2_DOWN_MASK);
             bot.mouseRelease(InputEvent.BUTTON2_DOWN_MASK);
             break;
             case "doubleclick":
             bot.mouseMove(x, y);
+            bot.delay(100);
             bot.mousePress(InputEvent.BUTTON1_DOWN_MASK);
             bot.mouseRelease(InputEvent.BUTTON1_DOWN_MASK);
             bot.delay(50);
