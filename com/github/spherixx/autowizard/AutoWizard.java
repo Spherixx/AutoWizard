@@ -1,7 +1,6 @@
 package com.github.spherixx.autowizard;
 
 import java.awt.AWTException;
-import java.time.Duration;
 import java.util.Arrays;
 import org.sikuli.script.FindFailed;
 import org.sikuli.script.Screen;
@@ -41,13 +40,13 @@ public class AutoWizard {
                 util.sleep(250);
             }
             // handle staff
-            if (Config.mainIndicators[1] == true && Config.staff == true) StaffofKnowledge.handleStaff();
+            if (Config.mainIndicators[1] == true) StaffofKnowledge.handleStaff();
             util.sleep(250);
             // handle eye of vision
-            if (Config.mainIndicators[2] == true && Config.eye == true) EyeofVision.handleEye();
+            if (Config.mainIndicators[2] == true) EyeofVision.handleEye();
             util.sleep(250);
             // handle enchant
-            if (Config.mainIndicators[3] == true && Config.enchant == true) Enchant.handleEnchant();
+            if (Config.mainIndicators[3] == true) Enchant.handleEnchant();
             util.sleep(250);
 
             // end loop timer

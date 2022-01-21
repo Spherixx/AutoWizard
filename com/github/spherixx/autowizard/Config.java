@@ -1,7 +1,5 @@
 package com.github.spherixx.autowizard;
 
-import java.time.Duration;
-
 public class Config {
 
     // toggles console debugging on or off
@@ -49,11 +47,5 @@ public class Config {
     // staff buttons
     public static int[] staffButtonsX = {851, 925, 999};
     public static int staffButtonsY = 300;
-
-
-    // testing
-    public static boolean staff = true;
-    public static boolean eye = true;
-    public static boolean enchant = true;
 
 }
