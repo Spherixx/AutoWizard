@@ -10,7 +10,7 @@ public class AutoWizard {
     public static void main(String[] args) throws FindFailed, AWTException {
         
         // main loop runs while this is true
-        boolean running = true;
+        boolean running = false;
         int antiAFKtimer = 0;
         int runCount = 0;
 
