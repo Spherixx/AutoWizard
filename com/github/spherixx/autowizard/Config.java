@@ -25,27 +25,27 @@ public class Config {
     public static boolean autoResearch = true;
 
     // main buttons
-    public static int[] mainButtonsX = {740, 810, 880, 960, 1030, 1100, 1180};
-    public static int[] mainButtonsY = {800, 880, 960};
+    public static final int[] mainButtonsX = {740, 810, 880, 960, 1030, 1100, 1180};
+    public static final int[] mainButtonsY = {800, 880, 960};
 
-    public static String[] mainIndicatorButtons = {"button_research", "button_staff", "button_eye", "button_enchant"};
+    public static final String[] mainIndicatorButtons = {"button_research", "button_staff", "button_eye", "button_enchant"};
     public static boolean[] mainIndicators = new boolean[4];
-    public static int[] mainIndicatorsX = {740, 880, 1030, 960};
+    public static final int[] mainIndicatorsX = {740, 880, 1030, 960};
 
     // eye buttons
-    public static int[] eyeButtonXY = {1100, 320};
+    public static final int[] eyeButtonXY = {1100, 320};
 
     // enchant buttons
-    public static int[] enchantButtonXY = {960, 500};
+    public static final int[] enchantButtonXY = {960, 500};
 
     // research buttons
-    public static String[] researchButtons = {"button_research_damage", "button_research_hp", "button_research_souls", "button_research_xp", "button_research_enchant"};
+    public static final String[] researchButtons = {"button_research_damage", "button_research_hp", "button_research_souls", "button_research_xp", "button_research_enchant"};
     public static Boolean[] researchIndicators = new Boolean[5];
-    public static int[] researchIndicatorsx = {810, 890, 960, 1040, 1110};
-    public static int[] researchButtonsx = {775, 848, 922, 996, 1070};
+    public static final int[] researchIndicatorsx = {810, 890, 960, 1040, 1110};
+    public static final int[] researchButtonsx = {775, 848, 922, 996, 1070};
 
     // staff buttons
-    public static int[] staffButtonsX = {851, 925, 999};
-    public static int staffButtonsY = 300;
+    public static final int[] staffButtonsX = {851, 925, 999};
+    public static final int staffButtonsY = 300;
 
 }
